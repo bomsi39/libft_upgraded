@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:55:34 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/06 14:35:11 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/11 18:02:39 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,9 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
+# include <unistd.h>
+
+# define BUFFER_SIZE 2048
 
 typedef struct s_list
 {
@@ -66,5 +69,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstiter(t_list *lst, void (*f)(void *));
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void(*del)(void *));
+char	*get_next_line(int fd);
 
 #endif
