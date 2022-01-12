@@ -6,95 +6,112 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/11 18:56:49 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/12 21:14:02 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME 				= libft.a
-CC 					= gcc -c
-FLAGS				= -Wall -Werror -Wextra -c -O3
-INCLUDES			= -I$(HEADER_DIR)
-HEADER_FILES		= libft.h
-HEADER_DIR			= ./includes/
-HEADER				= $(addprefix $(HEADER_DIR), $(HEADER_FILES))
-SOURCES_DIR			= ./srcs/
-SOURCES_FILES		= \
-			ft_memset.c \
-			ft_bzero.c \
-			ft_memcpy.c \
-			ft_memccpy.c \
-			ft_memmove.c \
-			ft_memchr.c \
-			ft_memcmp.c \
-			ft_strlen.c \
-			ft_strlcpy.c \
-			ft_strlcat.c \
-			ft_strchr.c \
-			ft_strrchr.c \
-			ft_strnstr.c \
-			ft_strncmp.c \
-			ft_atoi.c \
-			ft_isalpha.c \
-			ft_isdigit.c \
-			ft_isalnum.c \
-			ft_isascii.c \
-			ft_isprint.c \
-			ft_toupper.c \
-			ft_tolower.c \
-			ft_calloc.c \
-			ft_strdup.c \
-			ft_substr.c \
-			ft_strjoin.c \
-			ft_strtrim.c \
-			ft_split.c \
-			ft_itoa.c \
-			ft_strmapi.c \
-			ft_putchar_fd.c \
-			ft_putstr_fd.c \
-			ft_putendl_fd.c \
-			ft_putnbr_fd.c \
-			ft_lstnew.c \
-			ft_lstadd_front.c \
-			ft_lstsize.c \
-			ft_lstlast.c \
-			ft_lstadd_back.c \
-			ft_lstdelone.c \
-			ft_lstclear.c \
-			ft_lstiter.c \
-			ft_lstmap.c \
-			get_next_line.c
-SOURCES			= $(addprefix $(SOURCES_DIR), $(SOURCES_FILES))
-OBJECTS_DIR		= objs/
-OBJECTS_FILES	= $(patsubst %.c, %.o, $(SOURCES_FILES))
-OBJECTS			= $(addprefix $(OBJECTS_DIR), $(OBJECTS_FILES))
+NAME:= libft.a
+FILES:= \
+		ft_memset \
+		ft_bzero \
+		ft_memcpy \
+		ft_memccpy \
+		ft_memmove \
+		ft_memchr \
+		ft_memcmp \
+		ft_strlen \
+		ft_strlcpy \
+		ft_strlcat \
+		ft_strchr \
+		ft_strrchr \
+		ft_strnstr \
+		ft_strncmp \
+		ft_atoi \
+		ft_isalpha \
+		ft_isdigit \
+		ft_isalnum \
+		ft_isascii \
+		ft_isprint \
+		ft_toupper \
+		ft_tolower \
+		ft_calloc \
+		ft_strdup \
+		ft_substr \
+		ft_strjoin \
+		ft_strtrim \
+		ft_split \
+		ft_itoa \
+		ft_strmapi \
+		ft_putchar_fd \
+		ft_putstr_fd \
+		ft_putendl_fd \
+		ft_putnbr_fd \
+		ft_lstnew \
+		ft_lstadd_front \
+		ft_lstsize \
+		ft_lstlast \
+		ft_lstadd_back \
+		ft_lstdelone \
+		ft_lstclear \
+		ft_lstiter \
+		ft_lstmap \
+		get_next_line
 
-.PHONY:		all clean fclean re
+
+CC:=gcc
+LINKER:= ar rc
+SOURCES_DIR:=srcs/
+HEADER_DIR:=includes/
+OBJECTS_DIR:=objs/
+IFLAGS:=-I $(HEADER_DIR)
+CFLAGS:=-Wall -Werror -Wextra $(IFLAGS)
+
+#------Paths---------
+SOURCES:=$(addprefix $(SOURCES_DIR),$(addsuffix .c,$(FILES)))
+OBJECTS:=$(addprefix $(OBJECTS_DIR),$(addsuffix .o,$(FILES)))
+#====================
+
+
+#------Colors--------
+BLACK:="\033[1;30m"
+RED:="\033[0;31m"
+BRED:="\033[1;31m"
+GREEN:="\033[0;32m"
+BGREEN:="\033[1;32m"
+PURPLE:="\033[1;35m"
+CYAN:="\033[1;36m"
+WHITE:="\033[1;37m"
+EOC:="\033[0;0m"
+#====================
+CACHE:=.cache_exists
 
 all:	$(NAME)
 
-$(NAME): $(OBJECTS_DIR) $(OBJECTS)
-	@ar rc $(NAME) $(OBJECTS)
+$(NAME): $(OBJECTS)
+	@echo $(PURPLE) "\n  -> Compiling $@ "$(EOC)
+	@$(LINKER) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@echo "\n$(NAME): obj files created"
-	@echo "$(NAME): $(NAME) created"
-
-$(OBJECTS_DIR):
-	@mkdir -p $(OBJECTS_DIR)
-	@echo "$(NAME): $(OBJECTS_DIR) created"
+	@echo $(BGREEN) " -> OK" $(END)
 	
-$(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c $(HEADER)
-	@$(CC) $(FLAGS) $(INCLUDES) $< -o $@
+$(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c | $(CACHE)
 	@echo ".\c"
-	
-clean:
-	@rm -rf $(OBJECTS_DIR)
-	@echo "$(NAME): $(OBJECTS_DIR) deleted"
-	@echo "$(NAME): obj files deleted"
+	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+$(CACHE):
+	@mkdir -p $(OBJECTS_DIR)
+	@touch $(CACHE)
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo "$(NAME): $(NAME) deleted"
+	@echo $(BRED) " -> $(NAME) deleted"$(EOC)
+
+clean:
+	@rm -f $(CACHE)
+	@rm -rf $(OBJECTS_DIR)
+	@echo $(GREEN) " -> $(NAME) cache cleaned"$(EOC)
 
 re:
 	@$(MAKE) fclean
 	@$(MAKE) all
+
+.PHONY:		all clean fclean re
