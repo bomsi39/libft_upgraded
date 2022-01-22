@@ -1,21 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isstrint.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 15:27:56 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/13 12:04:04 by dfranke          ###   ########.fr       */
+/*   Created: 2022/01/16 18:05:01 by dfranke           #+#    #+#             */
+/*   Updated: 2022/01/16 19:16:59 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isalpha(int c)
+bool	ft_isstrint(char *str)
 {
-	if ((65 <= c && c <= 90) || (97 <= c && c <= 122))
-		return (true);
-	else
+	if(!ft_isstrnum(str) || (ft_atol(str) < -2147483647 || 2147483647 < ft_atol(str)))
 		return (false);
+	return (true);
 }

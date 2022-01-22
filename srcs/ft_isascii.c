@@ -6,14 +6,16 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 15:27:56 by dfranke           #+#    #+#             */
-/*   Updated: 2021/05/21 13:29:27 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/13 12:04:28 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isascii(int c)
+#include "libft.h"
+
+bool	ft_isascii(int c)
 {
 	if (0 <= c && c <= 127)
-		return (1);
+		return (true);
 	else
-		return (0);
+		return (false);
 }

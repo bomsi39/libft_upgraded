@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/12 21:14:02 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/22 01:47:31 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -55,8 +55,11 @@ FILES:= \
 		ft_lstclear \
 		ft_lstiter \
 		ft_lstmap \
-		get_next_line
-
+		get_next_line \
+		ft_isspace \
+		ft_isstrnum \
+		ft_isstrint \
+		ft_strcmp
 
 CC:=gcc
 LINKER:= ar rc
@@ -96,6 +99,9 @@ $(NAME): $(OBJECTS)
 $(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c | $(CACHE)
 	@echo ".\c"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+%.c:
+	@echo $(RED)"Missing file : $@" $(EOC)
 
 $(CACHE):
 	@mkdir -p $(OBJECTS_DIR)

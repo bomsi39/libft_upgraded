@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 15:27:56 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/13 12:04:04 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/13 16:21:11 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isalpha(int c)
+bool	ft_isspace(int c)
 {
-	if ((65 <= c && c <= 90) || (97 <= c && c <= 122))
+	if ((9 <= c && c <= 13) || c == SPACE)
 		return (true);
 	else
 		return (false);

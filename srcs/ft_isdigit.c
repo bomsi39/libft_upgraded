@@ -6,14 +6,16 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 15:27:56 by dfranke           #+#    #+#             */
-/*   Updated: 2021/05/21 13:33:45 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/13 11:51:38 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(int c)
+#include "libft.h"
+
+bool	ft_isdigit(int c)
 {
 	if (48 <= c && c <= 57)
-		return (1);
+		return (true);
 	else
-		return (0);
+		return (false);
 }

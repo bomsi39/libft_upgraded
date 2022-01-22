@@ -1,21 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isstrnum.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/19 15:27:56 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/13 12:04:04 by dfranke          ###   ########.fr       */
+/*   Created: 2022/01/12 15:12:42 by dfranke           #+#    #+#             */
+/*   Updated: 2022/01/21 23:07:19 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-bool	ft_isalpha(int c)
+bool	ft_isstrnum(char *str)
 {
-	if ((65 <= c && c <= 90) || (97 <= c && c <= 122))
-		return (true);
-	else
-		return (false);
+	int	i;
+	int len;
+
+	i = 0;
+	len = ft_strlen(str);
+	while (ft_isspace(str[i]))
+		i++;
+		if (len == i)
+			return (false);
+	while (str[i] == PLUS || str[i] == MINUS)
+		i++;
+		if (len == i)
+			return (false);
+	while (str[i])
+	{
+		if (!ft_isdigit(str[i]))
+			return (false);
+		i++;
+	}
+	return (true);
 }

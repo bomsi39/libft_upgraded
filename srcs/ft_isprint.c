@@ -6,14 +6,16 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/19 15:27:56 by dfranke           #+#    #+#             */
-/*   Updated: 2021/05/21 13:39:00 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/13 12:04:13 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include "libft.h"
+
+bool	ft_isprint(int c)
 {
 	if (32 <= c && c <= 126)
-		return (1);
+		return (true);
 	else
-		return (0);
+		return (false);
 }

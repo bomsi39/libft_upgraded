@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:55:34 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/11 18:35:37 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/21 17:06:51 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,13 @@
 # define LIBFT_H
 # include <stdlib.h>
 # include <unistd.h>
-# include <unistd.h>
 # include <stdbool.h>
 
 # define BUFFER_SIZE 2048
+
+# define SPACE ' '
+# define PLUS '+'
+# define MINUS '-'
 
 typedef struct s_list
 {
@@ -42,12 +45,12 @@ char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
-int		ft_atoi(const char *str);
-int		ft_isalpha(int c);
-int		ft_isdigit(int c);
-int		ft_isalnum(int c);
-int		ft_isascii(int c);
-int		ft_isprint(int c);
+long	ft_atol(const char *str);
+bool	ft_isalpha(int c);
+bool	ft_isdigit(int c);
+bool	ft_isalnum(int c);
+bool	ft_isascii(int c);
+bool	ft_isprint(int c);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 void	*ft_calloc(size_t count, size_t size);
@@ -84,6 +87,9 @@ char	*get_next_line(int fd);
 
 // ADDED FUNCTIONS
 
-
+bool	ft_isspace(int c);
+bool	ft_isstrnum(char *str);
+bool	ft_isstrint(char *str);
+int		ft_strcmp(const char *s1, const char *s2);
 
 #endif
