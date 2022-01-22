@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/22 01:47:31 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/22 01:48:41 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ FILES:= \
 		ft_strrchr \
 		ft_strnstr \
 		ft_strncmp \
-		ft_atoi \
+		ft_atol \
 		ft_isalpha \
 		ft_isdigit \
 		ft_isalnum \
