@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/22 02:05:37 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/22 02:07:23 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -87,18 +87,17 @@ EOC:="\033[0;0m"
 #====================
 CACHE:=.cache_exists
 
+all:	$(NAME)
+
 $(NAME): $(OBJECTS)
-	@echo $(PURPLE) "\n  -> Compiling $@ "$(EOC)
+	@echo $(PURPLE) "\n  -> Compiling $@" $(RED)
 	@$(LINKER) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@echo $(BGREEN) " -> OK" $(END)
+	@echo $(GREEN) " -> OK" $(END)
 	
 $(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c | $(CACHE)
 	@echo ".\c"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-%.c:
-	@echo $(RED)"Missing file : $@" $(EOC)
 
 $(CACHE):
 	@mkdir -p $(OBJECTS_DIR)
@@ -106,12 +105,11 @@ $(CACHE):
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo $(BRED) " -> $(NAME) deleted"$(EOC)
+	@echo $(BRED) "-> $(NAME) deleted"
 
 clean:
 	@rm -f $(CACHE)
 	@rm -rf $(OBJECTS_DIR)
-	@echo $(GREEN) " -> $(NAME) cache cleaned"$(EOC)
 
 re:
 	@$(MAKE) fclean
