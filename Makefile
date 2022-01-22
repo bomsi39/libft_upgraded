@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/22 01:48:41 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/21 17:07:08 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ FILES:= \
 		ft_strcmp
 
 CC:=gcc
-LINKER:= ar rc
+LINKER:=ar rc
 SOURCES_DIR:=srcs/
 HEADER_DIR:=includes/
 OBJECTS_DIR:=objs/
@@ -80,8 +80,7 @@ BLACK:="\033[1;30m"
 RED:="\033[0;31m"
 BRED:="\033[1;31m"
 GREEN:="\033[0;32m"
-BGREEN:="\033[1;32m"
-PURPLE:="\033[1;35m"
+PURPLE:="\033[0;35m"
 CYAN:="\033[1;36m"
 WHITE:="\033[1;37m"
 EOC:="\033[0;0m"
@@ -91,17 +90,14 @@ CACHE:=.cache_exists
 all:	$(NAME)
 
 $(NAME): $(OBJECTS)
-	@echo $(PURPLE) "\n  -> Compiling $@ "$(EOC)
+	@echo $(PURPLE) "\n  -> Compiling $@" $(RED)
 	@$(LINKER) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@echo $(BGREEN) " -> OK" $(END)
+	@echo $(GREEN) " -> OK" $(END)
 	
 $(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c | $(CACHE)
 	@echo ".\c"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
-
-%.c:
-	@echo $(RED)"Missing file : $@" $(EOC)
 
 $(CACHE):
 	@mkdir -p $(OBJECTS_DIR)
@@ -109,12 +105,11 @@ $(CACHE):
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo $(BRED) " -> $(NAME) deleted"$(EOC)
+	@echo $(BRED) "-> $(NAME) deleted"
 
 clean:
 	@rm -f $(CACHE)
 	@rm -rf $(OBJECTS_DIR)
-	@echo $(GREEN) " -> $(NAME) cache cleaned"$(EOC)
 
 re:
 	@$(MAKE) fclean
