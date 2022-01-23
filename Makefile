@@ -6,11 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-<<<<<<< HEAD
 #    Updated: 2022/01/22 02:24:31 by dfranke          ###   ########.fr        #
-=======
-#    Updated: 2022/01/22 02:07:23 by dfranke          ###   ########.fr        #
->>>>>>> 4b171394971b5bae13b947c7d2121b0388648045
 #                                                                              #
 # **************************************************************************** #
 
@@ -66,7 +62,7 @@ FILES:= \
 		ft_strcmp
 
 CC:=gcc
-LINKER:=ar rc
+LINKER:= ar rc
 SOURCES_DIR:=srcs/
 HEADER_DIR:=includes/
 OBJECTS_DIR:=objs/
@@ -84,7 +80,8 @@ BLACK:="\033[1;30m"
 RED:="\033[0;31m"
 BRED:="\033[1;31m"
 GREEN:="\033[0;32m"
-PURPLE:="\033[0;35m"
+BGREEN:="\033[1;32m"
+PURPLE:="\033[1;35m"
 CYAN:="\033[1;36m"
 WHITE:="\033[1;37m"
 EOC:="\033[0;0m"
@@ -94,18 +91,17 @@ CACHE:=.cache_exists
 all:	$(NAME)
 
 $(NAME): $(OBJECTS)
-<<<<<<< HEAD
 	@echo $(PURPLE) "\n  -> Compiling $@ " $(RED)
-=======
-	@echo $(PURPLE) "\n  -> Compiling $@" $(RED)
->>>>>>> 4b171394971b5bae13b947c7d2121b0388648045
 	@$(LINKER) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
-	@echo $(GREEN) " -> OK" $(END)
+	@echo $(BGREEN) " -> OK" $(END)
 	
 $(OBJECTS_DIR)%.o : $(SOURCES_DIR)%.c | $(CACHE)
 	@echo ".\c"
 	@$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+
+%.c:
+	@echo $(RED)"Missing file : $@" $(EOC)
 
 $(CACHE):
 	@mkdir -p $(OBJECTS_DIR)
@@ -113,7 +109,7 @@ $(CACHE):
 
 fclean: clean
 	@rm -f $(NAME)
-	@echo $(BRED) "-> $(NAME) deleted"
+	@echo $(BRED) " -> $(NAME) deleted"$(EOC)
 
 clean:
 	@rm -f $(CACHE)
