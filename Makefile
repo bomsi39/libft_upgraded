@@ -6,7 +6,11 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
+<<<<<<< HEAD
+#    Updated: 2022/01/22 02:24:31 by dfranke          ###   ########.fr        #
+=======
 #    Updated: 2022/01/22 02:07:23 by dfranke          ###   ########.fr        #
+>>>>>>> 4b171394971b5bae13b947c7d2121b0388648045
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +94,11 @@ CACHE:=.cache_exists
 all:	$(NAME)
 
 $(NAME): $(OBJECTS)
+<<<<<<< HEAD
+	@echo $(PURPLE) "\n  -> Compiling $@ " $(RED)
+=======
 	@echo $(PURPLE) "\n  -> Compiling $@" $(RED)
+>>>>>>> 4b171394971b5bae13b947c7d2121b0388648045
 	@$(LINKER) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@echo $(GREEN) " -> OK" $(END)
