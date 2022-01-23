@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/22 01:48:41 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/22 02:24:31 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -91,7 +91,7 @@ CACHE:=.cache_exists
 all:	$(NAME)
 
 $(NAME): $(OBJECTS)
-	@echo $(PURPLE) "\n  -> Compiling $@ "$(EOC)
+	@echo $(PURPLE) "\n  -> Compiling $@ " $(RED)
 	@$(LINKER) $(NAME) $(OBJECTS)
 	@ranlib $(NAME)
 	@echo $(BGREEN) " -> OK" $(END)
@@ -114,7 +114,6 @@ fclean: clean
 clean:
 	@rm -f $(CACHE)
 	@rm -rf $(OBJECTS_DIR)
-	@echo $(GREEN) " -> $(NAME) cache cleaned"$(EOC)
 
 re:
 	@$(MAKE) fclean

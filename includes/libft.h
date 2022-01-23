@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:55:34 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 17:06:51 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/22 16:12:51 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <unistd.h>
 # include <stdbool.h>
 
-# define BUFFER_SIZE 2048
+# define BUFFER_SIZE 1
 
 # define SPACE ' '
 # define PLUS '+'
