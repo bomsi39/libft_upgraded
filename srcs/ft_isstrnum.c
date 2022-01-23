@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/12 15:12:42 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/21 23:07:19 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/23 12:53:08 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,18 +15,22 @@
 bool	ft_isstrnum(char *str)
 {
 	int	i;
-	int len;
+	int	len;
 
 	i = 0;
 	len = ft_strlen(str);
 	while (ft_isspace(str[i]))
+	{
 		i++;
 		if (len == i)
 			return (false);
+	}
 	while (str[i] == PLUS || str[i] == MINUS)
+	{
 		i++;
 		if (len == i)
 			return (false);
+	}
 	while (str[i])
 	{
 		if (!ft_isdigit(str[i]))

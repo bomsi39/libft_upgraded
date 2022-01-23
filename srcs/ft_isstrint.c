@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/16 18:05:01 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/16 19:16:59 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/23 12:53:00 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 bool	ft_isstrint(char *str)
 {
-	if(!ft_isstrnum(str) || (ft_atol(str) < -2147483647 || 2147483647 < ft_atol(str)))
+	if (!ft_isstrnum(str) || (ft_atol(str) < -2147483647
+			|| 2147483647 < ft_atol(str)))
 		return (false);
 	return (true);
 }
