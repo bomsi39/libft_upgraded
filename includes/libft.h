@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 14:55:34 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/22 16:12:51 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/25 11:20:25 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,6 @@ bool	ft_isspace(int c);
 bool	ft_isstrnum(char *str);
 bool	ft_isstrint(char *str);
 int		ft_strcmp(const char *s1, const char *s2);
+bool	ft_isnl(char *save);
 
 #endif
