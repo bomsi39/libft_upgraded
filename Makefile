@@ -6,7 +6,7 @@
 #    By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/05/25 18:24:09 by dfranke           #+#    #+#              #
-#    Updated: 2022/01/25 11:33:59 by dfranke          ###   ########.fr        #
+#    Updated: 2022/01/28 13:48:54 by dfranke          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,8 @@ FILES:= \
 		ft_isstrnum \
 		ft_isstrint \
 		ft_strcmp \
-		ft_isnl
+		ft_isnl \
+		ft_strinsjoin
 
 CC:=gcc
 LINKER:= ar rc
