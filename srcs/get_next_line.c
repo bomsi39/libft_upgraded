@@ -6,7 +6,7 @@
 /*   By: dfranke <dfranke@student.42wolfsburg.de>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/10 13:30:51 by dfranke           #+#    #+#             */
-/*   Updated: 2022/01/22 16:11:54 by dfranke          ###   ########.fr       */
+/*   Updated: 2022/01/29 14:19:05 by dfranke          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	newline(char *save)
 	{
 		if (*save == '\n')
 			return (1);
-	save++;
+		save++;
 	}
 	return (0);
 }
